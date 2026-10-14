@@ -4,106 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador de Clicks | Colegio Bolívar</title>
+
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            background: #070b1a;
+            color: #f1f5f9;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            padding: 20px;
         }
 
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 460px;
+            padding: 45px 35px;
             text-align: center;
-            width: 90%;
-            max-width: 450px;
+            background: #10182d;
+            border: 1px solid #243453;
+            border-radius: 24px;
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.08);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            margin-bottom: 22px;
+            color: #00f5d4;
+            background: rgba(0, 245, 212, 0.08);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         h1 {
-            color: #123b65;
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
         }
 
-        p {
-            color: #64748b;
+        .subtitle {
+            color: #9baac5;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         .counter {
-            font-size: 80px;
-            font-weight: bold;
-            color: #123b65;
-            margin: 25px 0;
+            color: #00f5ff;
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 35px 0;
+            text-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+            font-variant-numeric: tabular-nums;
         }
 
         button {
+            width: 100%;
+            padding: 16px 20px;
             border: none;
-            border-radius: 10px;
-            padding: 14px 24px;
+            border-radius: 12px;
+            font-family: inherit;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.15s, background 0.15s;
-        }
-
-        button:active {
-            transform: scale(0.96);
+            transition: all 0.2s ease;
         }
 
         .click-button {
-            background: #123b65;
-            color: white;
-            width: 100%;
+            color: #06111d;
+            background: #00f5ff;
+            box-shadow: 0 0 18px rgba(0, 245, 255, 0.25);
         }
 
         .click-button:hover {
-            background: #1d568b;
+            background: #70fbff;
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .click-button:active,
+        .reset-button:active {
+            transform: scale(0.97);
         }
 
         .reset-button {
-            background: #e2e8f0;
-            color: #334155;
-            margin-top: 12px;
+            margin-top: 14px;
+            color: #ff6bcb;
+            background: rgba(255, 107, 203, 0.08);
+            border: 1px solid rgba(255, 107, 203, 0.4);
         }
 
         .reset-button:hover {
-            background: #cbd5e1;
+            color: #ffffff;
+            background: rgba(255, 107, 203, 0.18);
+            box-shadow: 0 0 18px rgba(255, 107, 203, 0.15);
         }
 
         .footer {
+            margin-top: 28px;
+            color: #64748b;
             font-size: 12px;
-            margin-top: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 24px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .counter {
+                font-size: 80px;
+            }
         }
     </style>
 </head>
+
 <body>
     <main class="container">
+        <div class="badge">EVENTOS · CB</div>
+
         <h1>Colegio Bolívar</h1>
-        <p>Contador interactivo de eventos</p>
+        <p class="subtitle">
+            Contador interactivo de eventos.<br>
+            ¡Cada clic cuenta!
+        </p>
 
         <div class="counter" id="counter" aria-live="polite">0</div>
 
         <button class="click-button" id="clickButton">
-            ¡Haz clic!
+            + Registrar clic
         </button>
-
-        <br>
 
         <button class="reset-button" id="resetButton">
             Reiniciar contador
         </button>
 
-        <p class="footer">Cada clic cuenta. ¡Participa!</p>
+        <p class="footer">
+            COLEGIO BOLÍVAR · PARTICIPA Y SUMA
+        </p>
     </main>
 
     <script>
