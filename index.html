@@ -240,3 +240,65 @@
     </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Eventos | Colegio Bolívar</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="actions.js" defer></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <h1 id="eventTitle">Contador de Eventos</h1>
+            <p class="subtitle">Colegio Bolívar</p>
+        </header>
+
+        <section class="counter-card">
+
+            <div class="counter-display">
+                <span id="counter">0</span>
+            </div>
+
+            <div class="controls">
+                <button id="clickButton" class="btn btn-primary">
+                    + Incrementar contador
+                </button>
+
+                <button id="resetButton" class="btn btn-reset">
+                    Reiniciar contador
+                </button>
+            </div>
+
+        </section>
+
+        <section class="settings">
+
+            <label for="titleInput">
+                Personalizar título del evento
+            </label>
+
+            <input
+                type="text"
+                id="titleInput"
+                placeholder="Ej. Feria Empresarial 2026"
+                maxlength="80"
+            >
+
+        </section>
+
+        <footer class="footer">
+            <p>Colegio Bolívar | Event Counter</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

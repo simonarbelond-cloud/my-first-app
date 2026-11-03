@@ -1,0 +1,236 @@
+
+/* ==============================
+   CONFIGURACIÓN GENERAL
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #080e1c, #101d35);
+    color: #ffffff;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* ==============================
+   CONTENEDOR PRINCIPAL
+============================== */
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+/* ==============================
+   ENCABEZADO
+============================== */
+
+.header {
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+}
+
+.subtitle {
+    color: #00e5ff;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ==============================
+   TARJETA DEL CONTADOR
+============================== */
+
+.counter-card {
+    background: #14213b;
+    border: 1px solid #263c60;
+    border-radius: 20px;
+    padding: 40px 30px;
+
+    box-shadow:
+        0 0 20px rgba(0, 229, 255, 0.08),
+        0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   DISPLAY DEL CONTADOR
+============================== */
+
+.counter-display {
+    margin-bottom: 35px;
+}
+
+#counter {
+    display: block;
+    font-size: 6rem;
+    font-weight: 800;
+    color: #00e5ff;
+
+    text-shadow:
+        0 0 10px rgba(0, 229, 255, 0.7),
+        0 0 30px rgba(0, 229, 255, 0.3);
+
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==============================
+   BOTONES
+============================== */
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 16px 20px;
+
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+/* Botón principal */
+
+.btn-primary {
+    background: #00e5ff;
+    color: #081323;
+
+    box-shadow:
+        0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.btn-primary:hover {
+    background: #5af0ff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(0, 229, 255, 0.8);
+}
+
+/* Botón de reinicio */
+
+.btn-reset {
+    background: transparent;
+    color: #ff4fd8;
+
+    border: 2px solid #ff4fd8;
+}
+
+.btn-reset:hover {
+    background: #ff4fd8;
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(255, 79, 216, 0.5);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* ==============================
+   PERSONALIZACIÓN DEL TÍTULO
+============================== */
+
+.settings {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.settings label {
+    display: block;
+    margin-bottom: 12px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #b9c9e5;
+}
+
+.settings input {
+    width: 100%;
+    padding: 15px;
+
+    background: #101b30;
+    color: #ffffff;
+
+    border: 1px solid #344969;
+    border-radius: 10px;
+
+    font-size: 1rem;
+    outline: none;
+
+    transition: border 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.settings input:focus {
+    border-color: #00e5ff;
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+.settings input::placeholder {
+    color: #71819d;
+}
+
+/* ==============================
+   PIE DE PÁGINA
+============================== */
+
+.footer {
+    margin-top: 35px;
+    color: #71819d;
+    font-size: 0.85rem;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 480px) {
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    #counter {
+        font-size: 4.5rem;
+    }
+
+    .counter-card {
+        padding: 30px 20px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}
