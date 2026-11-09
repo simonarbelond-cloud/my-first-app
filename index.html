@@ -1,252 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Eventos | Colegio Bolívar</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Inter", "Segoe UI", Arial, sans-serif;
-            background: #070b1a;
-            color: #f1f5f9;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 460px;
-            padding: 40px 30px;
-            text-align: center;
-            background: #10182d;
-            border: 1px solid #243453;
-            border-radius: 24px;
-            box-shadow: 0 0 35px rgba(0, 229, 255, 0.08);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 7px 14px;
-            margin-bottom: 22px;
-            color: #00f5d4;
-            background: rgba(0, 245, 212, 0.08);
-            border: 1px solid rgba(0, 245, 212, 0.3);
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            overflow-wrap: anywhere;
-        }
-
-        .subtitle {
-            color: #9baac5;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .field-label {
-            display: block;
-            color: #cbd5e1;
-            text-align: left;
-            font-size: 13px;
-            font-weight: 600;
-            margin: 25px 0 8px;
-        }
-
-        .title-input {
-            width: 100%;
-            padding: 13px 14px;
-            color: #ffffff;
-            background: #080f20;
-            border: 1px solid #344563;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .title-input:focus {
-            border-color: #00f5ff;
-            box-shadow: 0 0 12px rgba(0, 245, 255, 0.15);
-        }
-
-        .counter {
-            color: #00f5ff;
-            font-size: 100px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin: 30px 0;
-            text-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
-            font-variant-numeric: tabular-nums;
-        }
-
-        button {
-            width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .click-button {
-            color: #06111d;
-            background: #00f5ff;
-            box-shadow: 0 0 18px rgba(0, 245, 255, 0.25);
-        }
-
-        .click-button:hover {
-            background: #70fbff;
-            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .reset-button {
-            margin-top: 14px;
-            color: #ff6bcb;
-            background: rgba(255, 107, 203, 0.08);
-            border: 1px solid rgba(255, 107, 203, 0.4);
-        }
-
-        .reset-button:hover {
-            color: #ffffff;
-            background: rgba(255, 107, 203, 0.18);
-            box-shadow: 0 0 18px rgba(255, 107, 203, 0.15);
-        }
-
-        button:active {
-            transform: scale(0.97);
-        }
-
-        button:focus-visible {
-            outline: 3px solid #ffffff;
-            outline-offset: 4px;
-        }
-
-        .footer {
-            margin-top: 25px;
-            color: #64748b;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 22px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            .counter {
-                font-size: 80px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <main class="container">
-        <div class="badge">EVENTOS · CB</div>
-
-        <h1 id="eventTitle">Contador de Eventos</h1>
-
-        <p class="subtitle">
-            Registra la participación en tiempo real.<br>
-            ¡Cada clic cuenta!
-        </p>
-
-        <label class="field-label" for="titleInput">
-            Personaliza el título del evento
-        </label>
-
-        <input
-            type="text"
-            id="titleInput"
-            class="title-input"
-            placeholder="Ej. Feria Empresarial 2026"
-            value="Contador de Eventos"
-            maxlength="80"
-        >
-
-        <div
-            class="counter"
-            id="counter"
-            aria-live="polite"
-            aria-atomic="true"
-        >0</div>
-
-        <button class="click-button" id="clickButton">
-            + Registrar clic
-        </button>
-
-        <button class="reset-button" id="resetButton">
-            Reiniciar contador
-        </button>
-
-        <p class="footer">
-            COLEGIO BOLÍVAR · PARTICIPA Y SUMA
-        </p>
-    </main>
-
-    <script>
-        let clicks = 0;
-
-        const counter = document.getElementById("counter");
-        const clickButton = document.getElementById("clickButton");
-        const resetButton = document.getElementById("resetButton");
-        const titleInput = document.getElementById("titleInput");
-        const eventTitle = document.getElementById("eventTitle");
-
-        // Incrementar el contador con cada clic.
-        clickButton.addEventListener("click", function () {
-            clicks++;
-            counter.textContent = clicks;
-        });
-
-        // Reiniciar el contador a cero.
-        resetButton.addEventListener("click", function () {
-            clicks = 0;
-            counter.textContent = clicks;
-        });
-
-        // Actualizar el título inmediatamente mientras se escribe.
-        titleInput.addEventListener("input", function () {
-            const newTitle = titleInput.value.trim();
-            eventTitle.textContent = newTitle || "Contador de Eventos";
-        });
-    </script>
-</body>
-</html>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Eventos | Colegio Bolívar</title>
+
+    <title>Colegio Bolívar | Event Counter</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="actions.js" defer></script>
@@ -256,46 +15,123 @@
 
     <main class="container">
 
-        <header class="header">
+        <div class="badge">EVENTOS · CB</div>
+
+        <header>
             <h1 id="eventTitle">Contador de Eventos</h1>
-            <p class="subtitle">Colegio Bolívar</p>
+            <p class="subtitle">COLEGIO BOLÍVAR</p>
         </header>
 
-        <section class="counter-card">
+        <!-- CONFIGURACIÓN DE PARTIDA -->
 
-            <div class="counter-display">
-                <span id="counter">0</span>
-            </div>
+        <section class="settings">
 
-            <div class="controls">
-                <button id="clickButton" class="btn btn-primary">
-                    + Incrementar contador
-                </button>
+            <label for="durationSelect">
+                DURACIÓN DE LA PARTIDA
+            </label>
 
-                <button id="resetButton" class="btn btn-reset">
-                    Reiniciar contador
-                </button>
+            <select id="durationSelect">
+                <option value="10">10 segundos</option>
+                <option value="20">20 segundos</option>
+                <option value="30">30 segundos</option>
+            </select>
+
+        </section>
+
+        <!-- TEMPORIZADOR -->
+
+        <section class="timer-card">
+
+            <p class="section-label">TIEMPO TRANSCURRIDO</p>
+
+            <div
+                id="timer"
+                class="timer"
+                aria-live="off"
+            >00:00.000</div>
+
+            <div class="timer-track">
+                <div id="timerProgress" class="timer-progress"></div>
             </div>
 
         </section>
 
-        <section class="settings">
+        <!-- CONTADOR -->
+
+        <section class="counter-card">
+
+            <p class="section-label">CLICKS CONSEGUIDOS</p>
+
+            <div
+                id="counter"
+                class="counter"
+                aria-live="polite"
+            >0</div>
+
+            <button
+                id="clickButton"
+                class="click-button"
+                type="button"
+                disabled
+            >
+                + Registrar click
+            </button>
+
+        </section>
+
+        <!-- CONTROLES -->
+
+        <section class="controls">
+
+            <button
+                id="startButton"
+                class="start-button"
+                type="button"
+            >
+                Iniciar partida
+            </button>
+
+            <button
+                id="resetButton"
+                class="reset-button"
+                type="button"
+            >
+                Reiniciar partida
+            </button>
+
+        </section>
+
+        <!-- RESULTADO Y NOTIFICACIONES -->
+
+        <div
+            id="message"
+            class="message"
+            role="status"
+            aria-live="polite"
+        >
+            Selecciona la duración y comienza tu partida.
+        </div>
+
+        <!-- PERSONALIZACIÓN -->
+
+        <section class="customization">
 
             <label for="titleInput">
-                Personalizar título del evento
+                PERSONALIZAR TÍTULO DEL EVENTO
             </label>
 
             <input
                 type="text"
                 id="titleInput"
                 placeholder="Ej. Feria Empresarial 2026"
+                value="Contador de Eventos"
                 maxlength="80"
             >
 
         </section>
 
-        <footer class="footer">
-            <p>Colegio Bolívar | Event Counter</p>
+        <footer>
+            Colegio Bolívar | Event Counter
         </footer>
 
     </main>

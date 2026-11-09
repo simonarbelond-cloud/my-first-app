@@ -1,236 +1,364 @@
 
-/* ==============================
-   CONFIGURACIÓN GENERAL
-============================== */
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #080e1c, #101d35);
-    color: #ffffff;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #070d1b;
+    color: #f1f5f9;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 30px 20px;
 }
-
-/* ==============================
-   CONTENEDOR PRINCIPAL
-============================== */
 
 .container {
     width: 100%;
-    max-width: 550px;
+    max-width: 650px;
+
+    padding: 40px;
+
+    background: #101a30;
+    border: 1px solid #243b5c;
+    border-radius: 25px;
+
     text-align: center;
+
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.08);
 }
 
-/* ==============================
-   ENCABEZADO
-============================== */
+/* BADGE */
 
-.header {
-    margin-bottom: 35px;
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 25px;
+
+    color: #00f5d4;
+    background: rgba(0, 245, 212, 0.08);
+
+    border: 1px solid rgba(0, 245, 212, 0.35);
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-.header h1 {
-    font-size: 2.3rem;
-    font-weight: 700;
+/* HEADER */
+
+h1 {
     color: #ffffff;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 12px;
     overflow-wrap: anywhere;
 }
 
 .subtitle {
-    color: #00e5ff;
-    font-size: 1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    color: #00eaff;
+    font-size: 15px;
+    letter-spacing: 4px;
+    font-weight: 600;
 }
 
-/* ==============================
-   TARJETA DEL CONTADOR
-============================== */
+/* GENERAL LABELS */
 
-.counter-card {
-    background: #14213b;
-    border: 1px solid #263c60;
-    border-radius: 20px;
-    padding: 40px 30px;
-
-    box-shadow:
-        0 0 20px rgba(0, 229, 255, 0.08),
-        0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* ==============================
-   DISPLAY DEL CONTADOR
-============================== */
-
-.counter-display {
-    margin-bottom: 35px;
-}
-
-#counter {
-    display: block;
-    font-size: 6rem;
+.section-label {
+    color: #9eafc9;
+    font-size: 12px;
     font-weight: 800;
-    color: #00e5ff;
-
-    text-shadow:
-        0 0 10px rgba(0, 229, 255, 0.7),
-        0 0 30px rgba(0, 229, 255, 0.3);
-
-    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-/* ==============================
-   BOTONES
-============================== */
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.btn {
-    border: none;
-    border-radius: 10px;
-    padding: 16px 20px;
-
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-
-    transition: all 0.25s ease;
-}
-
-/* Botón principal */
-
-.btn-primary {
-    background: #00e5ff;
-    color: #081323;
-
-    box-shadow:
-        0 0 10px rgba(0, 229, 255, 0.5);
-}
-
-.btn-primary:hover {
-    background: #5af0ff;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 20px rgba(0, 229, 255, 0.8);
-}
-
-/* Botón de reinicio */
-
-.btn-reset {
-    background: transparent;
-    color: #ff4fd8;
-
-    border: 2px solid #ff4fd8;
-}
-
-.btn-reset:hover {
-    background: #ff4fd8;
-    color: #ffffff;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 20px rgba(255, 79, 216, 0.5);
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
-/* ==============================
-   PERSONALIZACIÓN DEL TÍTULO
-============================== */
+/* SETTINGS */
 
 .settings {
     margin-top: 30px;
     text-align: left;
 }
 
-.settings label {
+.settings label,
+.customization label {
     display: block;
     margin-bottom: 12px;
 
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #b9c9e5;
+    color: #c5d2e7;
+    font-size: 13px;
+    font-weight: 700;
 }
 
-.settings input {
+.settings select {
     width: 100%;
     padding: 15px;
 
-    background: #101b30;
     color: #ffffff;
+    background: #0a1427;
 
-    border: 1px solid #344969;
-    border-radius: 10px;
+    border: 1px solid #344b6d;
+    border-radius: 11px;
 
-    font-size: 1rem;
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.settings select:focus {
+    outline: none;
+    border-color: #00eaff;
+}
+
+.settings select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* TIMER */
+
+.timer-card {
+    margin-top: 25px;
+    padding: 25px 20px;
+
+    background: #15233d;
+    border: 1px solid #294366;
+    border-radius: 18px;
+}
+
+.timer {
+    color: #00eaff;
+
+    font-size: clamp(38px, 9vw, 64px);
+    font-weight: 800;
+
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+
+    text-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+}
+
+.timer-track {
+    width: 100%;
+    height: 7px;
+
+    margin-top: 22px;
+
+    background: #263954;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.timer-progress {
+    width: 0%;
+    height: 100%;
+
+    background: #00eaff;
+    border-radius: 20px;
+
+    box-shadow: 0 0 12px #00eaff;
+
+    transition: width 0.05s linear;
+}
+
+/* COUNTER */
+
+.counter-card {
+    margin-top: 20px;
+    padding: 25px 25px 30px;
+
+    background: #15233d;
+    border: 1px solid #294366;
+    border-radius: 18px;
+}
+
+.counter {
+    color: #00eaff;
+
+    font-size: 90px;
+    font-weight: 800;
+
+    line-height: 1.2;
+    margin-bottom: 20px;
+
+    font-variant-numeric: tabular-nums;
+
+    text-shadow: 0 0 25px rgba(0, 234, 255, 0.55);
+    overflow-wrap: anywhere;
+}
+
+/* BUTTONS */
+
+button {
+    width: 100%;
+    padding: 16px 20px;
+    margin-top: 12px;
+
+    border-radius: 12px;
+    border: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.click-button {
+    color: #04121d;
+    background: #00eaff;
+
+    box-shadow: 0 0 18px rgba(0, 234, 255, 0.25);
+}
+
+.click-button:hover:not(:disabled) {
+    background: #72f5ff;
+    box-shadow: 0 0 28px rgba(0, 234, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.start-button {
+    color: #06121d;
+    background: #00f5d4;
+
+    box-shadow: 0 0 18px rgba(0, 245, 212, 0.2);
+}
+
+.start-button:hover:not(:disabled) {
+    background: #73ffe9;
+    transform: translateY(-2px);
+}
+
+.reset-button {
+    color: #ff45cf;
+    background: transparent;
+    border: 2px solid #ff45cf;
+}
+
+.reset-button:hover {
+    color: white;
+    background: rgba(255, 69, 207, 0.15);
+    box-shadow: 0 0 18px rgba(255, 69, 207, 0.2);
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* MESSAGE */
+
+.message {
+    margin-top: 22px;
+    padding: 15px;
+
+    color: #a9bad4;
+    background: rgba(0, 234, 255, 0.05);
+
+    border: 1px solid rgba(0, 234, 255, 0.15);
+    border-radius: 12px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.message.success {
+    color: #00f5d4;
+    background: rgba(0, 245, 212, 0.08);
+    border-color: rgba(0, 245, 212, 0.4);
+
+    font-weight: 700;
+}
+
+/* CUSTOMIZATION */
+
+.customization {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.customization input {
+    width: 100%;
+    padding: 15px;
+
+    color: white;
+    background: #0a1427;
+
+    border: 1px solid #344b6d;
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.customization input:focus {
+    border-color: #00eaff;
     outline: none;
 
-    transition: border 0.3s ease,
-                box-shadow 0.3s ease;
+    box-shadow: 0 0 12px rgba(0, 234, 255, 0.15);
 }
 
-.settings input:focus {
-    border-color: #00e5ff;
-
-    box-shadow:
-        0 0 12px rgba(0, 229, 255, 0.25);
+.customization input::placeholder {
+    color: #71839f;
 }
 
-.settings input::placeholder {
-    color: #71819d;
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+
+    color: #8293af;
+    font-size: 12px;
+    letter-spacing: 0.5px;
 }
 
-/* ==============================
-   PIE DE PÁGINA
-============================== */
+/* RESPONSIVE */
 
-.footer {
-    margin-top: 35px;
-    color: #71819d;
-    font-size: 0.85rem;
-}
+@media (max-width: 600px) {
 
-/* ==============================
-   RESPONSIVE DESIGN
-============================== */
-
-@media (max-width: 480px) {
-
-    .header h1 {
-        font-size: 1.8rem;
+    body {
+        padding: 15px;
     }
 
-    #counter {
-        font-size: 4.5rem;
+    .container {
+        padding: 28px 20px;
     }
 
+    h1 {
+        font-size: 26px;
+    }
+
+    .counter {
+        font-size: 75px;
+    }
+
+    .timer-card,
     .counter-card {
-        padding: 30px 20px;
+        padding: 22px 16px;
     }
 
-    .btn {
-        font-size: 0.9rem;
+    .subtitle {
+        font-size: 12px;
     }
 }
