@@ -22,13 +22,21 @@
             <p class="subtitle">COLEGIO BOLÍVAR</p>
         </header>
 
-        <!-- CONFIGURACIÓN DE PARTIDA -->
+        <!-- REGISTRO DE PARTICIPANTE -->
 
         <section class="settings">
 
-            <label for="durationSelect">
-                DURACIÓN DE LA PARTIDA
-            </label>
+            <label for="playerName">NOMBRE DEL PARTICIPANTE</label>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Escribe tu nombre"
+                maxlength="30"
+                autocomplete="name"
+            >
+
+            <label for="durationSelect">DURACIÓN DE LA PARTIDA</label>
 
             <select id="durationSelect">
                 <option value="10">10 segundos</option>
@@ -44,11 +52,7 @@
 
             <p class="section-label">TIEMPO TRANSCURRIDO</p>
 
-            <div
-                id="timer"
-                class="timer"
-                aria-live="off"
-            >00:00.000</div>
+            <div id="timer" class="timer">00:00.000</div>
 
             <div class="timer-track">
                 <div id="timerProgress" class="timer-progress"></div>
@@ -101,7 +105,7 @@
 
         </section>
 
-        <!-- RESULTADO Y NOTIFICACIONES -->
+        <!-- MENSAJES -->
 
         <div
             id="message"
@@ -109,8 +113,84 @@
             role="status"
             aria-live="polite"
         >
-            Selecciona la duración y comienza tu partida.
+            Escribe tu nombre, selecciona el tiempo y comienza.
         </div>
+
+        <!-- BOTÓN LEADERBOARD -->
+
+        <section class="leaderboard-access">
+
+            <button
+                id="leaderboardButton"
+                class="leaderboard-button"
+                type="button"
+                aria-expanded="false"
+                aria-controls="leaderboardPanel"
+            >
+                🏆 Ver tabla de posiciones
+            </button>
+
+        </section>
+
+        <!-- LEADERBOARD -->
+
+        <section
+            id="leaderboardPanel"
+            class="leaderboard-panel"
+            hidden
+        >
+
+            <div class="leaderboard-header">
+
+                <div>
+                    <span class="badge">HALL OF FAME</span>
+                    <h2>Tabla de posiciones</h2>
+                    <p>Los mejores participantes del Colegio Bolívar</p>
+                </div>
+
+                <button
+                    id="closeLeaderboard"
+                    class="close-button"
+                    type="button"
+                    aria-label="Cerrar tabla de posiciones"
+                >✕</button>
+
+            </div>
+
+            <label for="leaderboardCategory">
+                CATEGORÍA DE TIEMPO
+            </label>
+
+            <select id="leaderboardCategory">
+                <option value="10">Ranking de 10 segundos</option>
+                <option value="20">Ranking de 20 segundos</option>
+                <option value="30">Ranking de 30 segundos</option>
+            </select>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>POS.</th>
+                            <th>PARTICIPANTE</th>
+                            <th>CLICKS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="leaderboardBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="leaderboardInfo" class="leaderboard-info">
+                Top 10 participantes de esta categoría.
+            </p>
+
+        </section>
 
         <!-- PERSONALIZACIÓN -->
 
